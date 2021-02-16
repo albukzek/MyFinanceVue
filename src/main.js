@@ -1,13 +1,42 @@
-import Vue from 'vue';
-import App from './App.vue';
-import './registerServiceWorker';
-import router from './router';
-import store from './store';
+import Vue from 'vue'
+import Vuelidate from 'vuelidate'
+import App from './App.vue'
+import messagePlugin from '@/utils/message.plugin'
+import router from './router'
+import store from './store'
+import './registerServiceWorker'
+import 'materialize-css/dist/js/materialize.min'
 
-Vue.config.productionTip = false;
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount('#app');
+Vue.config.productionTip = false
+Vue.use(Vuelidate)
+Vue.use(messagePlugin)
+
+
+firebase.initializeApp({
+  apiKey: "AIzaSyAYkZjpVJsTq9ZiR2rvlWvIjT0ffG7yYHE",
+  authDomain: "vue-tregubenko.firebaseapp.com",
+  projectId: "vue-tregubenko",
+  storageBucket: "vue-tregubenko.appspot.com",
+  messagingSenderId: "52355143363",
+  appId: "1:52355143363:web:53d238173e34e4da86f476",
+  measurementId: "G-X4NT09YZB1"
+})
+
+let app
+
+firebase.auth().onAuthStateChanged(()=>{
+  if (!app){
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
+  }
+
+})
+
+
