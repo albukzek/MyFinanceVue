@@ -1,5 +1,7 @@
 <template>
-    <div class="app-main-layout">
+<div>
+  <Loader v-if="loading"/>
+    <div class="app-main-layout" v-else>
       <NavBar @click="isOpen= !isOpen" />
       <SideBar v-model="isOpen" />
 
@@ -13,6 +15,7 @@
   <router-link class="btn-floating btn-large blue" to='/record'>
     <i class="large material-icons">add</i>
   </router-link>
+</div>
 </div>
 </div>
 </template>
@@ -30,9 +33,11 @@ export default {
     if(!Object.keys(this.$store.getters.info).length){
      await this.$store.dispatch('fetchInfo')
     }
+    this.loading = false
   },
   components: {
     NavBar, SideBar
   }
 }
+
 </script>
