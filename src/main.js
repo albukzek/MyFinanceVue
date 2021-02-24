@@ -13,12 +13,12 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
 
-
-Vue.config.productionTip = false
-Vue.use(Vuelidate)
 Vue.use(messagePlugin)
-Vue.component('Loader', Loader)
+Vue.use(Vuelidate)
+// Vue.filter('date', dateFilter)
 Vue.filter('currency', currencyFilter)
+// Vue.directive('tooltip', tooltipDirective)
+Vue.component('Loader', Loader)
 
 
 firebase.initializeApp({

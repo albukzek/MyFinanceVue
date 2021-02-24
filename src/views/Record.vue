@@ -54,7 +54,7 @@
             :class="{invalid: $v.amount.$dirty && !$v.amount.minValue}"
         >
         <label for="amount">Сумма</label>
-        <span 
+        <span
             v-if="$v.amount.$dirty && !$v.amount.minValue"
             class="helper-text invalid"
           >
@@ -70,11 +70,11 @@
             :class="{invalid: $v.description.$dirty && !$v.description.required}"
         >
         <label for="description">Описание</label>
-        <span 
+        <span
             v-if="$v.description.$dirty && !$v.description.required"
             class="helper-text invalid"
           >
-            Введите описание 
+            Введите описание
           </span>
       </div>
 
