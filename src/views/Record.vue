@@ -86,6 +86,7 @@
 
 <script>
 import {required, minValue} from 'vuelidate/lib/validators'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'record',
@@ -98,11 +99,50 @@ export default {
     description: '',
     amount: 1
   }),
+  computed:{
+    ...mapGetters(['info']), //совпадает с названием геттера в вьюиксе
+    canCreateRecord(){
+      if(this.type === 'income'){
+        return true
+      }
+      return this.info.bill >= this.amount
+    }
+  },
   methods:{
-    handleSubmit(){
+   async handleSubmit(){
        if(this.$v.$invalid){
         this.$v.$touch()
         return
+      }
+
+      if (this.canCreateRecord)
+      {
+        try {
+           await this.$store.dispatch('createRecord', {
+          categoryId:this.category,
+          amount: this.amount,
+          description: this.description,
+          type: this.type,
+          date: new Date().toJSON()
+        })
+        // console.log("bill: "+ this.info.bill + " amount: "+ this.amount)
+        const bill = this.type === 'income'
+        ? this.info.bill + this.amount
+        : this.info.bill - this.amount
+        console.log(bill +" billllll")
+        await this.$store.dispatch('updateInfo',{bill})
+        this.$message('Запись успешно создана')
+        this.$v.$reset()
+        this.amount = 1
+        this.description = ''
+
+        } catch(e){
+
+        }
+
+      } else
+      {
+        this.$message(`Недостаточно средств на счете (${this.amount - this.info.bill})`)
       }
     }
   },
@@ -115,7 +155,9 @@ export default {
    }
 
    setTimeout(()=>{
-     this.select = M.FormSelect.init(this.$refs.select) //нужна микрозадержка чтобы селект спел отрисоваться
+     this.select = M.FormSelect.init(this.$refs.select)
+     M.updateTextFields()
+     //нужна микрозадержка чтобы селект спел отрисоваться
      //так как после изменения значения лоадинга страница не успевает прогрузиться , а асинхронный селект
      //уже инициализируется.
    }, 0 )

@@ -1,11 +1,10 @@
 import firebase from 'firebase/app'
-import { register } from 'register-service-worker'
+
 
 export default {
     actions: {
       getUid(){
        const user =  firebase.auth().currentUser
-      //  console.log(user.uid)s
        return user ? user.uid : null
       },
       async register({dispatch,commit},{email,password,nick}){
