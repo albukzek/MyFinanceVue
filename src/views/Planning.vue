@@ -59,8 +59,8 @@ export default {
           ? 'yellow'
           : 'red'
 
-      const tooltipValue = cat.limit - spend
-      const tooltip = `${tooltipValue < 0 ? 'Превышение на' : 'Осталось'} ${currencyFilter(Math.abs(tooltipValue))}`
+      // const tooltipValue = cat.limit - spend
+      // const tooltip = `${tooltipValue < 0 ? 'Превышение на' : 'Осталось'} ${currencyFilter(Math.abs(tooltipValue))}`
 
       return {
         ...cat,
