@@ -29,7 +29,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
-// import currencyFilter from '@/filters/currency.filter'
+import currencyFilter from '@/filter/currencyFilter'
 export default {
   name: 'planning',
   data: () => ({
@@ -61,11 +61,15 @@ export default {
               : 'red'
 
           console.log(spend)
+          const tooltipValue = cat.limit - spend
+          const tooltip = `${tooltipValue <0 ? 'Превышение на ' : 'Осталось'} ${currencyFilter(Math.abs(tooltipValue))}`
+
           return {
             ...cat,
             progressPercent,
             progressColor,
-            spend
+            spend,
+            tooltip
           }
         })
 
