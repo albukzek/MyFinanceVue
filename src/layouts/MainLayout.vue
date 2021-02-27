@@ -23,11 +23,13 @@
 <script>
 import NavBar from '@/components/app/Navbar'
 import SideBar from '@/components/app/Sidebar'
+import messages from '@/utils/messages'
 
 export default {
+
   name: 'main-layout',
-  data: () => ({
-    isOpen: true
+    data: () => ({
+   isOpen: true
   }),
   async mounted(){
     if(!Object.keys(this.$store.getters.info).length){
@@ -37,6 +39,17 @@ export default {
   },
   components: {
     NavBar, SideBar
+  },
+   computed:{
+    error(){
+      return this.$store.getters.error
+    }
+  },
+  watch:{
+    error(fbError){
+      console.log(fbError)
+      this.$error(messages[fbError.code] || "Что-то пошло не так")
+    }
   }
 }
 
