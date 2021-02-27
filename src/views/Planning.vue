@@ -44,6 +44,7 @@ export default {
       const categoires = await this.$store.dispatch('fetchCategories')
 
         this.categories = categoires.map(cat => {
+          console.log(cat.title)
           const spend = records
             .filter(r =>r.categoryId === cat.id)
             .filter(r => r.type === 'outcome')
