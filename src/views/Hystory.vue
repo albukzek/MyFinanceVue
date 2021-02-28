@@ -13,35 +13,45 @@
     </p>
 
     <section v-else>
-        <HistoryTable :records="records"/>
+        <HistoryTable :records="items"/>
+
+        <Paginate
+          v-model="page"
+          :page-count="pageCount"
+          :click-handler="pageChangeHadler"
+          :prev-text="'Назад'"
+          :next-text="'Вперед'"
+          :container-class="'pagination'"
+          :page-class="'waves-effect'"
+        />
     </section>
     </div>
 </template>
 
 <script>
 import HistoryTable from '@/components/HistoryTable'
+import paginationMixin from '@/mixins/pagination.mixim'
 export default {
   name:'hyistory',
+  mixins: [paginationMixin],
   data: () => ({
     loading: true,
-    records: [],
-    categories : []
-
+    records: []
   }),
+
   async mounted() {
     // мы передаем данные сразу в рекодс модели так как после каждой итерации шаблон будет обновляться
     // а через мап можено обработать массив и обновить модель единожды
-    // this.records = await this.$store.dispatch('fetchRecords')
-    const records = await this.$store.dispatch('fetchRecords')
-    this.categories = await this.$store.dispatch('fetchCategories')
-    this.records = records.map(record => {
+    this.records = await this.$store.dispatch('fetchRecords')
+    const categories = await this.$store.dispatch('fetchCategories')
+    this.setupPaginations(this.records.map(record => {
       return {
         ...record,
-        categoryName : this.categories.find(c => c.id === record.categoryId).title,
+        categoryName : categories.find(c => c.id === record.categoryId).title,
         typeClass : record.type === 'income' ? 'green' : 'red',
         typeText : record.type === 'income' ? 'Доход' : 'Расход'
       }
-    })
+    }))
 
     this.loading = false
   },
