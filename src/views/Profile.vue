@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="page-title">
-    <h3>Профиль</h3>
+    <h3>{{'ProfileTitle'  | localize}} </h3>
   </div>
 
   <form class="form" @submit.prevent="submitHandler">
@@ -9,14 +9,14 @@
       <input
           id="description"
           type="text"
-          v-model="name"
-          :class="{invalide: $v.name.$dirty && !$v.name.required}"
+          v-model="nick"
+          :class="{invalide: $v.nick.$dirty && !$v.nick.required}"
 
 
       >
       <label for="description">Имя</label>
       <small
-            v-if="$v.name.$dirty && !$v.name.required"
+            v-if="$v.nick.$dirty && !$v.nick.required"
             class="helper-text invalid">
             Введите имя
       </small>
@@ -25,7 +25,7 @@
     <div class="switch">
       <label>
         English
-        <input type="checkbox">
+        <input type="checkbox" v-model="isRuLocale">
         <span class="lever"></span>
         Русский
       </label>
@@ -47,34 +47,41 @@
 
 <script>
 import {required} from 'vuelidate/lib/validators'
-import {mapGetters} from "vuex"
+import {mapGetters, mapActions} from "vuex"
 export default {
   data: ()=>({
-    name: ''
+    nick: '',
+    isRuLocale: true
   }),
   mounted(){
-    this.name = this.info.name
+    this.nick = this.info.nick
+    this.isRuLocale = this.info.locale === 'ru-RU'
     setTimeout(()=>{
       M.updateTextFields()
     },0 )
   },
   validations: {
-     name: { required  },
+     nick: { required },
   },
   methods:{
+    ...mapActions(['updateInfo']),
      async submitHandler(){
       if(this.$v.$invalid){
         this.$v.$touch()
         return
       }
       try{
+        await  this.updateInfo({
+          nick: this.nick,
+          locale: this.isRuLocale ? 'ru-RU' : 'en-US'
+        })
 
       } catch (e) {}
 
         }
   },
   computed:{
-    ...mapGetters(['info'])
+     ...mapGetters(['info'])
   }
 }
 </script>
