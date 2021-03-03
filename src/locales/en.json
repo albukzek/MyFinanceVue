@@ -1,3 +1,22 @@
 {
-    "ProfileTitle": "Profile"
+    "ProfileTitle": "Profile",
+    "Profile_Update": "Update",
+    "Profile_InputName": "Input name",
+    "Profile_Name": "Name",
+    "Categoryes_CategoryNot" : "No categories yet",
+    "Categoryes_Categoryes" : "Categoryes",
+    "Detail_History" : "Hyistory",
+    "Detail_Description" : "Description",
+    "Detail_Currency" : "Currency",
+    "Detail_Category" : "Category",
+    "Details_Err1" : "Record with id = ",
+    "Details_Err2" : "not found.",
+    "Menu_Bill" : "Bill",
+    "Menu_History" : "History",
+    "Menu_Planning" : "Planning",
+    "Menu_NewRecord" : "New record",
+    "Menu_Categories" : "Categories",
+    "Home_Bill" : "Bill",
+    "History_NotNote":"No entries yet",
+    "History_AddNewNote":"ДAdd the first"
 }

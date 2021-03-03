@@ -14,11 +14,11 @@
 
 
       >
-      <label for="description">Имя</label>
+      <label for="description">{{ 'Profile_Name' | localize}}</label>
       <small
             v-if="$v.nick.$dirty && !$v.nick.required"
             class="helper-text invalid">
-            Введите имя
+            {{ 'Profile_InputName' | localize}}
       </small>
     </div>
 
@@ -32,7 +32,7 @@
     </div>
 
     <button class="btn waves-effect waves-light" type="submit">
-      Обновить
+      {{ 'Profile_Update' | localize}}
       <i class="material-icons right">send</i>
     </button>
   </form>

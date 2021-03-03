@@ -8,8 +8,8 @@
     <Loader v-if="loading"/>
 
     <p class="center" v-else-if="!records.length">
-      Записей пока нет
-      <router-link to="/record">Добавьте первую</router-link>
+      {{'History_NotNote' | localize}}
+    <router-link to="/record">{{'History_AddNewNote' | localize}}</router-link>
     </p>
 
     <section v-else>
@@ -63,7 +63,7 @@ export default {
     this.renderChart({
         labels:  categories.map(c => c.title),
         datasets: [{
-            label: 'Расхоы по категориям',
+            label: 'Расход по категориям',
             data: categories.map(c => {
               return this.records.reduce((total, r)=>{
                 if (r.categoryId === c.id && r.type === 'outcome'){

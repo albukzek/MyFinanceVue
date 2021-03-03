@@ -1,3 +1,23 @@
 {
-    "ProfileTitle": "Профиль"
+    "ProfileTitle": "Профиль",
+    "Profile_Update": "Обновить",
+    "Profile_InputName": "Введите имя",
+    "Profile_Name": "Имя",
+    "Categoryes_CategoryNot" : "Категорий пока нет",
+    "Categoryes_Categoryes" : "Категории",
+    "Detail_History" : "История",
+    "Detail_Description" : "Описание",
+    "Detail_Currency" : "Валюта",
+    "Detail_Category" : "Категория",
+    "Details_Err1" : "Записи с id = ",
+    "Details_Err2" : "не найдено.",
+    "Menu_Bill" : "Счет",
+    "Menu_History" : "История",
+    "Menu_Planning" : "Планирование",
+    "Menu_NewRecord" : "Новая запись",
+    "Menu_Categories" : "Категории",
+    "Home_Bill" : "Счет",
+    "History_NotNote":"Записей пока нет",
+    "History_AddNewNote":"Добавьте первую"
+ 
 }
