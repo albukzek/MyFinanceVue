@@ -35,6 +35,11 @@ export default {
     record: null,
     loading: true
   }),
+  metaInfo() {
+    return {
+      title: this.$title('Detail_Detail')
+    }
+  },
   async mounted(){
     const id = this.$route.params.id //последне свойство соответствиет описанию роута в ротере /details/:ID
     const record = await this.$store.dispatch('fetchRecordById', id)

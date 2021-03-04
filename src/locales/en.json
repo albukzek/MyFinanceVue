@@ -52,5 +52,7 @@
     "HC_ExchageRates" : "Exchange Rates",
     "HC_Bill" : "Currency",
     "HC_Curse" : "Course",
-    "HC_Date" : "Date"
+    "HC_Date" : "Date",
+    "R_Register" : "Register",
+    "Detail_Detail" : "Detail"
 }

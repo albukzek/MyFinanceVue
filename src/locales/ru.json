@@ -52,7 +52,9 @@
     "HC_ExchageRates" : "Курс валют",
     "HC_Bill" : "Валюта",
     "HC_Curse" : "Курс",
-    "HC_Date" : "Дата"
+    "HC_Date" : "Дата",
+    "R_Register" : "Регистрация",
+    "Detail_Detail" : "Детали"
 
 
 

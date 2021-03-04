@@ -35,6 +35,11 @@ export default {
     loading: true,
     currency: null
   }),
+   metaInfo() {
+    return {
+      title: this.$title('Login_HomeBuhgaltery')
+    }
+  },
  async mounted(){
    this.currency =  await this.$store.dispatch('fetchCurrency')
    console.log(this.currency)

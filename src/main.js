@@ -4,6 +4,7 @@ import Paginate from 'vuejs-paginate'
 import VueMeta from 'vue-meta'
 import App from './App.vue'
 import messagePlugin from '@/utils/message.plugin'
+import titlePlugin from '@/utils/title.plugin'
 import router from './router'
 import store from './store'
 import currencyFilter from '@/filter/currencyFilter'
@@ -18,6 +19,7 @@ import 'firebase/auth'
 import 'firebase/database'
 
 Vue.use(messagePlugin)
+Vue.use(titlePlugin)
 Vue.use(Vuelidate)
 Vue.use(VueMeta)
 // Vue.filter('date', dateFilter)

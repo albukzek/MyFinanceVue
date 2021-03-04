@@ -78,6 +78,11 @@
 <script>
 import {email, required, minLength} from 'vuelidate/lib/validators'
 export default {
+  metaInfo() {
+    return {
+      title: this.$title('R_Register')
+    }
+  },
   name: 'register',
     data: () => ({
         email:'',

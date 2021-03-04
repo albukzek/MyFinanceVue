@@ -77,6 +77,11 @@ export default {
         }
 
     },
+      metaInfo() {
+    return {
+      title: this.$title('Login_HomeBuhgaltery')
+    }
+  },
     methods: {
          async submitHandler(){
             // console.log(this.$v.password)

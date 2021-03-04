@@ -40,6 +40,11 @@ export default {
     loading: true,
     records: []
   }),
+    metaInfo() {
+    return {
+      title: this.$title('Menu_History')
+    }
+  },
   async mounted() {
     // мы передаем данные сразу в рекодс модели так как после каждой итерации шаблон будет обновляться
     // а через мап можено обработать массив и обновить модель единожды
