@@ -48,7 +48,13 @@
 <script>
 import {required} from 'vuelidate/lib/validators'
 import {mapGetters, mapActions} from "vuex"
+import localeFilter from "@/filter/localize.filter"
 export default {
+  metaInfo() {
+    return {
+      title: localeFilter('Navbar_Profile')
+    }
+  },
   data: ()=>({
     nick: '',
     isRuLocale: true

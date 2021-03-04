@@ -18,6 +18,44 @@
     "Menu_Categories" : "Категории",
     "Home_Bill" : "Счет",
     "History_NotNote":"Записей пока нет",
-    "History_AddNewNote":"Добавьте первую"
+    "History_AddNewNote":"Добавьте первую",
+    "Login_HomeBuhgaltery":"Домашняя бухгалетрия",
+    "Login_NotEmail":"Поле email не должно быть пустым",
+    "Login_NotCorrectEmail":"Введите корректный email",
+    "Login_Password" : "Пароль",
+    "Login_NotPassword" : "Поле пароль не должно быть пустым",
+    "Login_Enter" : "Войти",
+    "Login_NotAccount" : "Нет аккаунта?",
+    "Login_Register" : "Зарегистрироваться",
+    "Planning_planning" : "Планирование",
+    "Planing_NotCategory" : "Категорий пока нет.",
+    "Planing_Iz" : "из",
+    "Record_New" : "Новая запись",
+    "Record_NotCategory" : "Категорий пока нет.",
+    "Record_AddCategory" : "Добавить новую категорию",
+    "Record_SelectCategory" : "Выберите категорию",
+    "Record_Income" : "Доход",
+    "Record_Outcome" : "Расход",
+    "Record_Sum" : "Сумма",
+    "Record_MinValue" : "Минимальное значение",
+    "Record_Description" : "Описание",
+    "Record_EnterDescription" : "Введите описание",
+    "Record_Create" : "Создать",
+    "Navbar_Profile" : "Профиль",
+    "Navbar_Exit" : "Выйти",
+    "CC_Create" : "Создать",
+    "CC_Desc" : "Название",
+    "CC_InputNameCat" : "Введите название категории",
+    "CC_Limit" : "Лимит",
+    "CC_MinValue" : "Минимальное значение",
+    "HB_Bill" : "Счет в валюте",
+    "HC_ExchageRates" : "Курс валют",
+    "HC_Bill" : "Валюта",
+    "HC_Curse" : "Курс",
+    "HC_Date" : "Дата"
+
+
+
+
  
 }
