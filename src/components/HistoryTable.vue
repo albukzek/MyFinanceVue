@@ -3,11 +3,11 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>Сумма</th>
-            <th>Дата</th>
-            <th>Категория</th>
-            <th>Тип</th>
-            <th>Открыть</th>
+              <th>{{'Amount'|localize}}</th>
+              <th>{{'Date'|localize}}</th>
+              <th>{{'Category'|localize}}</th>
+              <th>{{'Type'|localize}}</th>
+              <th>{{'Open'|localize}}</th>
         </tr>
         </thead>
 
@@ -20,7 +20,7 @@
             <td>
             <span
                 :class="[record.typeClass]"
-                class="white-text badge red">{{ record.typeText }}</span>
+                class="white-text badge">{{ record.typeText }}</span>
             </td>
             <td>
             <button

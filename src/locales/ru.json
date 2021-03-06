@@ -54,7 +54,21 @@
     "HC_Curse" : "Курс",
     "HC_Date" : "Дата",
     "R_Register" : "Регистрация",
-    "Detail_Detail" : "Детали"
+    "Detail_Detail" : "Детали",
+    "CreateNewRecord" : "Создать новую запись",
+    "Back": "Назад",
+    "Forward": "Вперед",
+    "Type": "Тип",
+    "Open": "Открыть",
+    "Amount": "Сумма",
+    "Date": "Дата",
+    "Category": "Категория",
+    "MoreThan": "Превышение на",
+    "Stayed": "Осталось",
+    "Update" : "Обновить",
+    "Edit" : "Редактировать",
+    "Category_HasBeenUpdated": "Категория упешно обновлена",
+    "Category_HasBeenCreated": "Категория успешно создана"
 
 
 

@@ -1,7 +1,5 @@
 <template>
  <div>
-
-
     <div class="history-chart">
         <canvas ref="canvas"></canvas>
     </div>
@@ -19,8 +17,8 @@
           v-model="page"
           :page-count="pageCount"
           :click-handler="pageChangeHadler"
-          :prev-text="'Назад'"
-          :next-text="'Вперед'"
+          :prev-text="'Back' | localize"
+          :next-text="'Forward' | localize"
           :container-class="'pagination'"
           :page-class="'waves-effect'"
         />
@@ -32,6 +30,7 @@
 import HistoryTable from '@/components/HistoryTable'
 import paginationMixin from '@/mixins/pagination.mixim'
 import {Pie} from 'vue-chartjs'
+import localizeFilter from '@/filter/localize.filter'
 export default {
   name:'hyistory',
   extends: Pie,
@@ -62,7 +61,9 @@ export default {
         ...record,
         categoryName : categories.find(c => c.id === record.categoryId).title,
         typeClass : record.type === 'income' ? 'green' : 'red',
-        typeText : record.type === 'income' ? 'Доход' : 'Расход'
+        typeText : record.type === 'income'
+        ? localizeFilter('Record_Income')
+        : localizeFilter('Record_Outcome')
       }
     }))
     this.renderChart({
